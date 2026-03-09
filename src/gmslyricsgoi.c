@@ -217,9 +217,7 @@ static s16 scenario_text_00C0[] = {
     PCT_SPACE,
     CHR_s,CHR_h,CHR_a,CHR_l,CHR_l,
     PCT_SPACE,
-    CHR_c,CHR_o,CHR_n,CHR_t,CHR_i,CHR_n,CHR_u,CHR_e,
-    PCT_SPACE,
-    CHR_t,CHR_o,CHR_n,CHR_i,CHR_g,CHR_h,CHR_t,
+    CTR_CLOSE_EM,
     CTR_ENDLINE
 };
 
@@ -233,9 +231,6 @@ static s16 scenario_text_00C2[] = {
     PCT_SPACE,
     CHR_s,CHR_h,CHR_a,CHR_l,CHR_l,
     PCT_SPACE,
-    CHR_c,CHR_o,CHR_n,CHR_t,CHR_i,CHR_n,CHR_u,CHR_e,
-    PCT_SPACE,
-    CHR_t,CHR_o,CHR_n,CHR_i,CHR_g,CHR_h,CHR_t,
     CTR_CLOSE_EM,
     CTR_ENDLINE
 };
@@ -328,15 +323,17 @@ s32 scenario_code_gms_goi[] = {
 
     // Window setup
        
-  
-    STW, (s32)&D_801C7758_1C8358, WTS, 0x64,
+    
+       // Window setup
+    STW,     TEXT_SPEED,          WTS, 0x01, //text speed. Sets to max. zoooooooom
+    STW, (s32)&D_801C7758_1C8358, WTS, 0x20,
     STW, (s32)&D_801C775C_1C835C, WTS, 0xAA,
     STW, (s32)&D_801C7768_1C8368, WTS, 0xB,
 
     TXT, (s32)&scenario_text_0000,
 
     // Initial wait (match 1D4 timing)
-    STW, (s32)&D_801C7740_1C8340, WTS, 0x1D0,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x1C0,
     ESR, (s32)&func_8003F460_40060,
 
     STW, (s32)&D_801C77D8_1C8398, WTS, 0x64,
@@ -345,7 +342,7 @@ s32 scenario_code_gms_goi[] = {
     // Opening line: "ma yoeru ko hitsujitachiyo  sa miruga i"
     TXT, (s32)&scenario_text_0004,
     TXT, (s32)&scenario_text_000C,
-    STW, (s32)&D_801C7740_1C8340, WTS, 0x55,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x65,
     ESR, (s32)&func_8003F460_40060,
 
     // Window 1: sa miruga i
@@ -362,10 +359,11 @@ s32 scenario_code_gms_goi[] = {
 
 
     // Window 3: "gorgeous
+    STW,     TEXT_SPEED,          WTS, 0x64, //text speed. Sets to max. zoooooooom
     TXT, (s32)&scenario_text_0074,
     TXT, (s32)&scenario_text_0004,
     TXT, (s32)&scenario_text_0038,
-    STW, (s32)&D_801C7740_1C8340, WTS, 0x2E,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x5E,
     ESR, (s32)&func_8003F460_40060,
 
     // Window 2: my stage
@@ -377,17 +375,19 @@ s32 scenario_code_gms_goi[] = {
   ESR, (s32)&func_8003F460_40060,
 
   //  BLANK
+   STW,     TEXT_SPEED,          WTS, 0x01, //text speed. Sets to max. zoooooooom
    TXT, (s32)&scenario_text_0074,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x90,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0xAA,
    ESR, (s32)&func_8003F460_40060,
 
    //  no ni saku bara
+   STW,     TEXT_SPEED,          WTS, 0x64, //text speed. Sets to max. zoooooooom
    TXT, (s32)&scenario_text_0074,
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_0048,
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_0044,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x32,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x62,
    ESR, (s32)&func_8003F460_40060,
 
    // amai kaori
@@ -396,7 +396,7 @@ s32 scenario_code_gms_goi[] = {
    TXT, (s32)&scenario_text_0060,
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_0062,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x38,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x68,
    ESR, (s32)&func_8003F460_40060,
 
    // futari tsumu merodi
@@ -405,10 +405,11 @@ s32 scenario_code_gms_goi[] = {
    TXT, (s32)&scenario_text_0078,
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_0080,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x20,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x78,
    ESR, (s32)&func_8003F460_40060,
 
    // (suwito memori)
+
    TXT, (s32)&scenario_text_0074,
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_0092,
@@ -416,46 +417,53 @@ s32 scenario_code_gms_goi[] = {
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_0098,
    TXT, (s32)&scenario_text_0096,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x0C,
+  
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x4A,
    ESR, (s32)&func_8003F460_40060,
 
+
    //  yume no tsuzuki
+
    TXT, (s32)&scenario_text_0074,
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_00C0,
    TXT, (s32)&scenario_text_0004,
    TXT, (s32)&scenario_text_00C2,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x6E,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x55,
    ESR, (s32)&func_8003F460_40060,
+
+   //  konya wa
+  TXT, (s32)&scenario_text_0074,
+  TXT, (s32)&scenario_text_0004,
+  TXT, (s32)&scenario_text_00D6,
+  TXT, (s32)&scenario_text_0004,
+  TXT, (s32)&scenario_text_00D8,
+  STW, (s32)&D_801C7740_1C8340, WTS, 0x55,
+  ESR, (s32)&func_8003F460_40060,
 
   // oh gojasu mai
   TXT, (s32)&scenario_text_0074,
   TXT, (s32)&scenario_text_0004,
   TXT, (s32)&scenario_text_00E6,
   TXT, (s32)&scenario_text_00E8,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x35,
+  STW, (s32)&D_801C7740_1C8340, WTS, 0x65,
   ESR, (s32)&func_8003F460_40060,
 
   // mai suteji !!
+    STW, TEXT_SPEED, WTS, 0x64, //text speed. Sets to max. zoooooooom
     TXT, (s32)&scenario_text_0074,
     TXT, (s32)&scenario_text_0004,
     TXT, (s32)&scenario_text_0106,
     TXT, (s32)&scenario_text_0108,
-    STW, (s32)&D_801C7740_1C8340, WTS, 0x50,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0xA0,
     ESR, (s32)&func_8003F460_40060,
 
     //  BLANK
+  STW, TEXT_SPEED, WTS, 0x01, //text speed. Sets to max. zoooooooom
   TXT, (s32)&scenario_text_0074,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x9E,
+  STW, (s32)&D_801C7740_1C8340, WTS, 0x98,
   ESR, (s32)&func_8003F460_40060,
 
-
-  //  laughing
-       TXT, (s32)&scenario_text_0074,
-       TXT, (s32)&scenario_text_0004,
-       TXT, (s32)&scenario_text_0112,
-       STW, (s32)&D_801C7740_1C8340, WTS, 0x50,
-       ESR, (s32)&func_8003F460_40060,
 
 
        // End

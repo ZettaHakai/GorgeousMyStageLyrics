@@ -3,6 +3,7 @@
 
 #include "common.h"
 
+#define TEXT_SPEED 0x801C77D8
 // Skip Next If Not Equal To Value
 #define SNE 0x8002
 

@@ -11,6 +11,7 @@ extern s32 scenario_code_gms_rama[];
 extern s32 scenario_code_gms_goi[];
 #define GMS_SCENARIO_ID 777  // scenario being replaced
 
+
 // Helper function to choose which C file pointer to use
 s32* get_selected_gms_lyrics(void) {
     unsigned long version = recomp_get_config_u32("gms_lyrics_version");
@@ -42,6 +43,13 @@ void main_hook() {
     s32* selected_lyrics = get_selected_gms_lyrics();
     replace_scenario(GMS_SCENARIO_ID, selected_lyrics, 0);
 
-
+ ///////   Pre GMS
+ /////     Disable_scenario 261  the bottom 2 functions are in dev notes,
+ // if "activated", by undevnoting, you skip dialog. 
+ // Speed runs using this mod can be autobanned just on the thought of this. 
+ // These 2 lines of code below are a speedrun fakers dream. 
+    
+  //   D_800779A0_785A0[261] = 0;
+  //   D_80078608_79208[261] = 0;
 
 }

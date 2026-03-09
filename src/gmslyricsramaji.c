@@ -280,130 +280,141 @@ s32 scenario_code_gms_rama[];
     // ===== Scenario Code =====
 s32 scenario_code_gms_rama[] = {
     // Window setup
-   STW, (s32)&D_801C7758_1C8358, WTS, 0x20,
-   STW, (s32)&D_801C775C_1C835C, WTS, 0xAA,
-   STW, (s32)&D_801C7768_1C8368, WTS, 0xB,
+      // Window setup
+    STW,     TEXT_SPEED,          WTS, 0x01, //text speed. Sets to max. zoooooooom
+    STW, (s32)&D_801C7758_1C8358, WTS, 0x20,
+    STW, (s32)&D_801C775C_1C835C, WTS, 0xAA,
+    STW, (s32)&D_801C7768_1C8368, WTS, 0xB,
 
-   TXT, (s32)&scenario_text_0000,
+    TXT, (s32)&scenario_text_0000,
 
-   // Initial wait (match 1D4 timing)
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x1D0,
+    // Initial wait (match 1D4 timing)
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x1C0,
+    ESR, (s32)&func_8003F460_40060,
+
+    STW, (s32)&D_801C77D8_1C8398, WTS, 0x64,
+    STW, (s32)&D_801C7798_1C8398, WTS, 0x1,
+
+    // Opening line: "ma yoeru ko hitsujitachiyo  sa miruga i"
+    TXT, (s32)&scenario_text_0004,
+    TXT, (s32)&scenario_text_000C,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x65,
+    ESR, (s32)&func_8003F460_40060,
+
+    // Window 1: sa miruga i
+    TXT, (s32)&scenario_text_0074,  // window marker
+    TXT, (s32)&scenario_text_0004,  // spacer/padding
+    TXT, (s32)&scenario_text_0018,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x48,
+    ESR, (s32)&func_8003F460_40060,
+
+    // Window 2: my stage
+    TXT, (s32)&scenario_text_0024,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x30,
+    ESR, (s32)&func_8003F460_40060,
+
+
+    // Window 3: "gorgeous
+    STW,     TEXT_SPEED,          WTS, 0x64, //text speed. Sets to max. zoooooooom
+    TXT, (s32)&scenario_text_0074,
+    TXT, (s32)&scenario_text_0004,
+    TXT, (s32)&scenario_text_0038,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0x5E,
+    ESR, (s32)&func_8003F460_40060,
+
+    // Window 2: my stage
+  TXT, (s32)&scenario_text_0074,
+  TXT, (s32)&scenario_text_0004,
+  TXT, (s32)&scenario_text_0028,
+  TXT, (s32)&scenario_text_0024,
+  STW, (s32)&D_801C7740_1C8340, WTS, 0x1E,
+  ESR, (s32)&func_8003F460_40060,
+
+  //  BLANK
+   STW,     TEXT_SPEED,          WTS, 0x01, //text speed. Sets to max. zoooooooom
+   TXT, (s32)&scenario_text_0074,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0xBA,
    ESR, (s32)&func_8003F460_40060,
 
-   STW, (s32)&D_801C77D8_1C8398, WTS, 0x64,
-   STW, (s32)&D_801C7798_1C8398, WTS, 0x1,
-
-   // Opening line: "ma yoeru ko hitsujitachiyo  sa miruga i"
+   //  no ni saku bara
+   STW,     TEXT_SPEED,          WTS, 0x64, //text speed. Sets to max. zoooooooom
+   TXT, (s32)&scenario_text_0074,
    TXT, (s32)&scenario_text_0004,
-   TXT, (s32)&scenario_text_000C,
+   TXT, (s32)&scenario_text_0048,
+   TXT, (s32)&scenario_text_0044,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x62,
+   ESR, (s32)&func_8003F460_40060,
+
+   // amai kaori
+   TXT, (s32)&scenario_text_0074,
+   TXT, (s32)&scenario_text_0004,
+   TXT, (s32)&scenario_text_0060,
+   TXT, (s32)&scenario_text_0062,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x68,
+   ESR, (s32)&func_8003F460_40060,
+
+   // futari tsumu merodi
+   TXT, (s32)&scenario_text_0074,
+   TXT, (s32)&scenario_text_0004,
+   TXT, (s32)&scenario_text_0078,
+   TXT, (s32)&scenario_text_0004,
+   TXT, (s32)&scenario_text_0080,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x78,
+   ESR, (s32)&func_8003F460_40060,
+
+   // (suwito memori)
+
+   TXT, (s32)&scenario_text_0074,
+   TXT, (s32)&scenario_text_0004,
+   TXT, (s32)&scenario_text_0092,
+   TXT, (s32)&scenario_text_0094,
+   TXT, (s32)&scenario_text_0004,
+   TXT, (s32)&scenario_text_0098,
+   TXT, (s32)&scenario_text_0096,
+   STW, (s32)&D_801C7740_1C8340, WTS, 0x4A,
+   ESR, (s32)&func_8003F460_40060,
+
+
+   //  yume no tsuzuki
+
+   TXT, (s32)&scenario_text_0074,
+   TXT, (s32)&scenario_text_0004,
+   TXT, (s32)&scenario_text_00C0,
+   TXT, (s32)&scenario_text_00C2,
    STW, (s32)&D_801C7740_1C8340, WTS, 0x55,
    ESR, (s32)&func_8003F460_40060,
 
-   // Window 1: sa miruga i
-   TXT, (s32)&scenario_text_0074,  // window marker
-   TXT, (s32)&scenario_text_0004,  // spacer/padding
-   TXT, (s32)&scenario_text_0018,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x48,
-   ESR, (s32)&func_8003F460_40060,
-
-   // Window 2: my stage
-   TXT, (s32)&scenario_text_0024,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x30,
-   ESR, (s32)&func_8003F460_40060,
-
-
-   // Window 3: "gorgeous
-   TXT, (s32)&scenario_text_0074,
-   TXT, (s32)&scenario_text_0004,
-   TXT, (s32)&scenario_text_0038,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x3E,
-   ESR, (s32)&func_8003F460_40060,
-
-   // Window 2: my stage
- TXT, (s32)&scenario_text_0074,
- TXT, (s32)&scenario_text_0004,
- TXT, (s32)&scenario_text_0028,
- TXT, (s32)&scenario_text_0024,
- STW, (s32)&D_801C7740_1C8340, WTS, 0x1E,
- ESR, (s32)&func_8003F460_40060,
-
- //  BLANK
-  TXT, (s32)&scenario_text_0074,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x9A,
-  ESR, (s32)&func_8003F460_40060,
-
-  //  no ni saku bara
+   //  konya wa
   TXT, (s32)&scenario_text_0074,
   TXT, (s32)&scenario_text_0004,
-  TXT, (s32)&scenario_text_0048,
-  TXT, (s32)&scenario_text_0044,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x42,
+  TXT, (s32)&scenario_text_00D6,
+  TXT, (s32)&scenario_text_00D8,
+  STW, (s32)&D_801C7740_1C8340, WTS, 0x55,
   ESR, (s32)&func_8003F460_40060,
 
-  // amai kaori
+  // oh gojasu mai
   TXT, (s32)&scenario_text_0074,
   TXT, (s32)&scenario_text_0004,
-  TXT, (s32)&scenario_text_0060,
-  TXT, (s32)&scenario_text_0062,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x48,
+  TXT, (s32)&scenario_text_00E6,
+  TXT, (s32)&scenario_text_00E8,
+  STW, (s32)&D_801C7740_1C8340, WTS, 0x65,
   ESR, (s32)&func_8003F460_40060,
 
-  // futari tsumu merodi
+  // mai suteji !!
+    STW, TEXT_SPEED, WTS, 0x64, //text speed. Sets to max. zoooooooom
+    TXT, (s32)&scenario_text_0074,
+    TXT, (s32)&scenario_text_0004,
+    TXT, (s32)&scenario_text_0106,
+    TXT, (s32)&scenario_text_0108,
+    STW, (s32)&D_801C7740_1C8340, WTS, 0xA0,
+    ESR, (s32)&func_8003F460_40060,
+
+    //  BLANK
+  STW, TEXT_SPEED, WTS, 0x01, //text speed. Sets to max. zoooooooom
   TXT, (s32)&scenario_text_0074,
-  TXT, (s32)&scenario_text_0004,
-  TXT, (s32)&scenario_text_0078,
-  TXT, (s32)&scenario_text_0004,
-  TXT, (s32)&scenario_text_0080,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x33,
+  STW, (s32)&D_801C7740_1C8340, WTS, 0x98,
   ESR, (s32)&func_8003F460_40060,
 
-  // (suwito memori)
-  TXT, (s32)&scenario_text_0074,
-  TXT, (s32)&scenario_text_0004,
-  TXT, (s32)&scenario_text_0092,
-  TXT, (s32)&scenario_text_0094,
-  TXT, (s32)&scenario_text_0004,
-  TXT, (s32)&scenario_text_0098,
-  TXT, (s32)&scenario_text_0096,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x0E,
-  ESR, (s32)&func_8003F460_40060,
-
-  //  yume no tsuzuki
-  TXT, (s32)&scenario_text_0074,
-  TXT, (s32)&scenario_text_0004,
-  TXT, (s32)&scenario_text_00C0,
-  TXT, (s32)&scenario_text_00C2,
-  STW, (s32)&D_801C7740_1C8340, WTS, 0x35,
-  ESR, (s32)&func_8003F460_40060,
-
-  //  konya wa
- TXT, (s32)&scenario_text_0074,
- TXT, (s32)&scenario_text_0004,
- TXT, (s32)&scenario_text_00D6,
- TXT, (s32)&scenario_text_00D8,
- STW, (s32)&D_801C7740_1C8340, WTS, 0x40,
- ESR, (s32)&func_8003F460_40060,
-
- // oh gojasu mai
- TXT, (s32)&scenario_text_0074,
- TXT, (s32)&scenario_text_0004,
- TXT, (s32)&scenario_text_00E6,
- TXT, (s32)&scenario_text_00E8,
- STW, (s32)&D_801C7740_1C8340, WTS, 0x35,
- ESR, (s32)&func_8003F460_40060,
-
- // mai suteji !!
-   TXT, (s32)&scenario_text_0074,
-   TXT, (s32)&scenario_text_0004,
-   TXT, (s32)&scenario_text_0106,
-   TXT, (s32)&scenario_text_0108,
-   STW, (s32)&D_801C7740_1C8340, WTS, 0x50,
-   ESR, (s32)&func_8003F460_40060,
-
-   //  BLANK
- TXT, (s32)&scenario_text_0074,
- STW, (s32)&D_801C7740_1C8340, WTS, 0x98,
- ESR, (s32)&func_8003F460_40060,
 
 
  //  laughing
